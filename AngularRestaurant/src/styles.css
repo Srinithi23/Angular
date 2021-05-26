@@ -1,0 +1,71 @@
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+
+
+
+.jumbotron{
+    padding-top: 0px;
+    background: rgb(143, 141, 141);
+}
+
+.form-control,.input-group-text{
+    border: 1px solid #0080ff;
+}
+
+/* table.table-hover tbody tr:hover{
+    cursor: pointer; 
+} */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+div {
+    border-radius: 2px;
+    background-color: #cacacf;
+    padding: 1px;
+  }
+  h1 { 
+    display: block;
+    font-size: 6em;
+    margin-top: 0.67em;
+    margin-bottom: 0.67em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+  }
+  body{
+    background-image: url('D:/SrinithiMNS/Task/AngularRestaurant/src/assets/Image/S.png');
+    background-position: center center fixed;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;  }
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(63, 62, 62);
+  }
+  
+  li {
+    float: left;
+  }
+  
+pre{
+  background-color:transparent;
+   font-style:oblique font;
+   font-size: 200%;
+}
+
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+  }
+  
+  li a:hover {
+    background-color: rgb(95, 95, 97);
+  }

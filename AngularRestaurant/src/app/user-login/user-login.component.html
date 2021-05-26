@@ -1,0 +1,31 @@
+  <div class="row">
+        <div class="col-6 m-auto">
+            <div class="card m-auto"  style="background-color: grey;">
+                <div class="card-header"  style="background-color: grey;">
+                     LOGIN 
+                </div>
+                <div class="card-body">
+                    <form #loginForm='ngForm' (ngsubmit)="Login(loginForm)" (submit)="Login(loginForm)">
+                        <div class="form-group col-12">
+                            <label style="float:left">Username :</label>
+                            <input class="form-control" required ngModel name="Username" value="Kanini" placeholder="Enter your name" aria-required="true">
+                            <!-- <input [(ngModel)]="userlogin.Username" [ngModelOptions]="{standalone: true}"> -->
+                            <!-- <input [(ngModel)]="userlogin.Username" type="text" name="pseudo"> -->
+                        </div>
+    
+                        <div class="form-group col-12">
+                            <label style="float:left">Password :</label>
+                            <input class="form-control" required type="Password" ngModel="Password" value="Kanini@123" placeholder="Enter Password">
+                        </div>
+                         <div class="form-group col-12">
+                            <button [disabled]="!loginForm.valid" type="submit" class="btn btn-primary">Login</button>
+                            <button style="margin-left: 16px"  type="button" class="btn btn-secondary ml-2">Cancel</button>
+                        </div> 
+                    </form>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+
+ 

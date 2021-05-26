@@ -1,0 +1,104 @@
+
+<form #form="ngForm" autocomplete="off" *ngIf="service.formData" (submit)="onSubmit(form)">
+ 
+    <input type="hidden" name="ORDERID" #ORDERID="ngModel" [(ngModel)]="service.formData.ORDERID">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Order Number.</label>
+                <div class="input-group"></div>
+                <input name="ORDERNO" #ORDERNO="ngModel" [(ngModel)]="service.formData.ORDERNO" class="form-control">
+            </div>
+           
+
+            <div class="form-group"> 
+                <label>Customer</label>
+                <select name="CUSTID" #CUSTID="ngModel" [(ngModel)]="service.formData.CUSTID" class="form-control" 
+                 [class.is-invalid]="!isValid && service.formData.CUSTID==0">
+                <option value="0">--SELECT--</option>
+                <option *ngFor="let item of customerList" value="{{item.CUSID}}">{{item.CUSTOMERNAME}}</option>
+                </select>
+            </div>
+
+
+            <!-- <div class="form-group">
+                <label>Customer</label>
+                <select name="CUSTID" #CUSTID="ngModel" [(ngModel)]="service.formData.CUSTID" class="form-control"
+                [class.is-invalid]="!isValid && service.formData.CUSTID==0">
+                <option value="0">--SELECT REGULAR CUSTOMER--</option>
+                <option value="0">--SELECT NEW CUSTOMER--</option>
+                <option *ngFor="let Item for customerList" value="{{Item.CUSTID}}">{{Item.CUSTOMERNAME}}</option>
+
+                </select>
+            </div> -->
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Payment type </label>
+            <div><label style="background-color: cornflowerblue;">
+                <input  type="radio" checked="checked" value="cash"  name="PAYMENT" #PAYMENT="ngModel" [(ngModel)]="service.formData.PAYMENT">
+                <span class="col-md-6">cash</span>
+              </label>
+              <label style="background-color:lightskyblue">
+                <input  type="radio" checked="checked" value="card"  name="PAYMENT" #PAYMENT="ngModel" [(ngModel)]="service.formData.PAYMENT">
+                <span class="col-md-6">card</span>
+              </label></div>
+            </div>
+
+            <div class="form-group">
+                <label>Total Cost</label>
+                <input name="TOTALCOST" #TOTALCOST="ngModel" [(ngModel)]="service.formData.TOTALCOST"
+                class="form-control" readonly>
+            </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Customer DOB</label>
+                    <input type="date" id="birthday" name="birthday"
+                    class="form-control">
+                </div>
+                </div>
+        </div>
+    <!--order items table-->
+    <table class="table table-borderless">
+        <thead class="thead-light">
+            <th>Food</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+            <th>
+                <button class="btn-outline-success" (click)="AddorEditOrderItem(null,service.formData.ORDERID)"> + Add Item</button>
+            </th>
+        </thead>
+        <tbody>
+            <tr *ngIf="service.orderItems.length==0" [class.text-danger]="!isValid && service.orderItems.length==0">
+                <td class="font-italic text-center text-white" colspan="5">
+                    No food item selected
+                </td>
+            </tr>
+            <tr *ngFor="let Item of service.orderItems;let i=index">
+                <td>{{Item.ItemName}}</td>
+                <td>{{Item.Price}}</td>
+                <td>{{Item.QUANTITY}}</td>
+                <td>{{Item.Total}}</td>
+                <td>
+                    <a style="margin-right: 16px" class="btn btn-sm btn-info text-white"  (click)="AddorEditOrderItem(i,service.formData.ORDERID)">Edit</a>
+                    <a class="btn btn-sm btn-danger text-white ml-1"  (click)="onDeleteOrderItem(Item .ORDERITEM_ID,i)">Delete</a>
+
+
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+    <div class="form-group">
+        <button style="margin-right: 30px" type="submit" class="btn btn-primary"><i class="fa fa-database"></i> SUBMIT </button>
+        <button class="btn btn-outline-primary" routerLink="/orders"><i class="fa fa-plus-square"></i> View Orders</button>
+        
+
+    </div>
+
+
+</form>
